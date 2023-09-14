@@ -114,6 +114,10 @@
       //   grabbing the input  elements from frontend
       var title = document.getElementById("title");
       var description = document.getElementById("description");
+      require('dotenv').config();
+      const domain = process.env.DOMAIN;
+      const fetchLocal = process.env.FETCHLOCAL;
+      const fetchServer = process.env.FETCHSERVER;  
 
       function parsedResponse(data) {
         //e is the another function that logs the response data
@@ -149,7 +153,7 @@
           title: title.value, //extracting the value from the elements which are defined above
           description: description.value,
         };
-        fetch("https://todoapp-omkute.netlify.app/todos/", {
+        fetch( fetchLocal || fetchServer, {
           //fetch request
           method: "POST", // method to request
           body: JSON.stringify(obj), // this converts javascript objects to JSON objects
@@ -161,7 +165,7 @@
 
       // trying GET Request
 
-      fetch("https://todoapp-omkute.netlify.app/todos/", {
+      fetch(fetchLocal || fetchServer, {
         method: "GET",
       }).then(callback2);
 
@@ -170,7 +174,7 @@
       }
       function deleteTodo(id) {
         console.log(id);
-        fetch("https://todoapp-omkute.netlify.app/todos/" + id, {
+        fetch(fetchLocal || fetchServer + id, {
           method: "DELETE",
           headers: {
             "Content-Type": "application/json",
