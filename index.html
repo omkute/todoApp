@@ -2,6 +2,7 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
+   
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Todo App</title>
   </head>
@@ -148,7 +149,7 @@
           title: title.value, //extracting the value from the elements which are defined above
           description: description.value,
         };
-        fetch("https://zippy-khapse-456503.netlify.app/", {
+        fetch("https://zippy-khapse-456503.netlify.app/todos/", {
           //fetch request
           method: "POST", // method to request
           body: JSON.stringify(obj), // this converts javascript objects to JSON objects
@@ -160,7 +161,7 @@
 
       // trying GET Request
 
-      fetch("https://zippy-khapse-456503.netlify.app/", {
+      fetch("https://zippy-khapse-456503.netlify.app/todos/", {
         method: "GET",
       }).then(callback2);
 
@@ -169,7 +170,7 @@
       }
       function deleteTodo(id) {
         console.log(id);
-        fetch("https://zippy-khapse-456503.netlify.app/" + id, {
+        fetch("https://zippy-khapse-456503.netlify.app/todos/" + id, {
           method: "DELETE",
           headers: {
             "Content-Type": "application/json",
