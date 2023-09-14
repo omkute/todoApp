@@ -148,7 +148,7 @@
           title: title.value, //extracting the value from the elements which are defined above
           description: description.value,
         };
-        fetch("http://localhost:3000/todos/", {
+        fetch("https://zippy-khapse-456503.netlify.app/", {
           //fetch request
           method: "POST", // method to request
           body: JSON.stringify(obj), // this converts javascript objects to JSON objects
@@ -160,7 +160,7 @@
 
       // trying GET Request
 
-      fetch("http://localhost:3000/todos/", {
+      fetch("https://zippy-khapse-456503.netlify.app/", {
         method: "GET",
       }).then(callback2);
 
@@ -169,7 +169,7 @@
       }
       function deleteTodo(id) {
         console.log(id);
-        fetch("http://localhost:3000/todos/" + id, {
+        fetch("https://zippy-khapse-456503.netlify.app/" + id, {
           method: "DELETE",
           headers: {
             "Content-Type": "application/json",
